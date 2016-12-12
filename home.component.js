@@ -8,10 +8,15 @@
                 var vm = this;
                 var STREAMS = ["ESL_SC2", "freecodecamp", "storbeck", "test_channel"];
 
+                vm.channels = [];
+
                 function _getSTreamStatus() {
                     STREAMS.forEach(function(item) {
-                        dataService.getStreamStatus().then(function() {
-
+                        dataService.getStreamStatus(item).then(function(data) {
+                            vm.channels.push({
+                                stream: data.stream,
+                                title: item,
+                            });
                         }).catch(function(error) {
                             console.log(error);
                         });
