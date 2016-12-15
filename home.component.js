@@ -15,7 +15,7 @@
                         dataService.getStreamStatus(item).then(function(data) {
                             vm.channels.push({
                                 stream: data.data.stream,
-                                title: item,
+                                title: data.data.links ? item : 'does not exist',
                             });
                         }).catch(function(error) {
                             console.log(error);
