@@ -6,7 +6,7 @@
             templateUrl: 'home.component.html',
             controller: function HomeController(dataService) {
                 var vm = this;
-                var STREAMS = ["ESL_SC2", "freecodecamp", "storbeck", "test_channel"];
+                var STREAMS = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "test_channel", "comster404"];
 
                 vm.channels = [];
 
@@ -14,7 +14,7 @@
                     STREAMS.forEach(function(item) {
                         dataService.getStreamStatus(item).then(function(data) {
                             vm.channels.push({
-                                stream: data.stream,
+                                stream: data.data.stream,
                                 title: item,
                             });
                         }).catch(function(error) {

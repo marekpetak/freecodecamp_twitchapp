@@ -3,18 +3,18 @@
 <div>
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="item in $ctrl.channels">
-            <div class="panel panel-default">
+            <div class="panel" ng-class="{'panel-success': item.stream, 'panel-default': !item.stream }">
                 <div class="panel-heading">
+                    <img class="channel-logo" ng-src="{{item.stream.channel.logo}}" />
                     <strong>
                         <a ng-href="https://www.twitch.tv/{{item.title}}">
                             {{item.title}}
                         </a>
-                        - <span ng-if="item.stream"> {{item.stream.game}} </span>
-                          <span ng-if="!item.stream"> <i>offline</i> </span>
                     </strong>
                 </div>
                 <div class="panel-body">
-                    {{item.stream.game}}
+                    <span ng-if="item.stream"> {{item.stream.game}} </span>
+                    <span ng-if="!item.stream"> <i>offline</i> </span>
                 </div>
             </div>
         </li>
